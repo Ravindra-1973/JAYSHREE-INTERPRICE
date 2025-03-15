@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOUDE</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Inventory Management System</h1>
+        
+        <div class="form-group">
+            <label for="modelNumber">Model Number:</label>
+            <input type="text" id="modelNumber" placeholder="Enter model number">
+        </div>
+        
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" placeholder="Enter quantity" min="0">
+        </div>
+        
+        <div class="form-group">
+            <label for="price">Price per Unit:</label>
+            <input type="number" id="price" placeholder="Enter price per unit" min="0" step="0.01">
+        </div>
+        
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date">
+        </div>
+        
+        <div class="form-group">
+            <button onclick="addItem()">Add Item</button>
+            <!-- <button onclick="addItemToFirestore()">Add Item to Firestore</button> -->
+            <button onclick="generatePDF()">Download PDF</button>
+            <!-- <button onclick="saveToDatabase()">Save to Database</button> -->
+            <button onclick="clearAllItems()">Clear All</button>
+            <div id="message"></div>
+        </div>
+        
+        <div class="table-container">
+            <table id="inventoryTable">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Model Number</th>
+                        <th>Quantity</th>
+                        <th>Price per Unit</th>
+                        <th>Total Price</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryBody">
+                    <!-- Items will be added here -->
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td colspan="4" style="text-align: right;">Grand Total:</td>
+                        <td id="grandTotal">0.00</td>
+                        <td colspan="2"></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+    </div>
+    <script src="javascript/script.js"></script>
+    
+</body>
+</html>
